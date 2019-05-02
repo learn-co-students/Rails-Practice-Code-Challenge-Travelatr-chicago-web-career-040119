@@ -1,0 +1,22 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+   <%= error %>
+  <% end %>
+<% end  %>
+
+<h1>Posts new form:</h1>
+<%= form_for(@post) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :likes %>
+  <%= f.text_field :likes %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.collection_select :blogger_id, Blogger.all, :id, :name %>
+  <%= f.collection_select :destination_id, Destination.all, :id, :name %>
+
+  <%= f.submit %>
+  <% end %>

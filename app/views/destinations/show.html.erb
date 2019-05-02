@@ -1,0 +1,24 @@
+<h1>Destination: </h1>
+<h3>Destination name: <%= @destination.name %></h3>
+<h3>Destination country: <%= @destination.country %></h3>
+<h4>Recent 5 Posts: </h4>
+  <ul>
+    <% if @posts.count == 0 %>
+       <h3>Sorry, no posts!</h3>
+    <% else %>
+      <% @destination.recent_posts.each do |post| %>
+        <li><h4><%= post.title %></h4> - <%= post.content %></li>
+    <% end %>
+  <% end %>
+  </ul>
+  <% if @destination.most_liked_post %>
+    <h4>Most liked post for this destination: <%= link_to @destination.most_liked_post.title, post_path(@destination.most_liked_post.id) %></h4>
+  <% else %>
+    <h4>You can be the first to give a post for this destination ;) !</h4>
+ <% end %>
+
+ <% if @destination.average_age %>
+   <h4>Average age for bloggers for this destination: <%= @destination.average_age %></h4>
+ <% else %>
+ <h4>There are no bloggers yet. You break the ice!</h4>
+ <% end %>
