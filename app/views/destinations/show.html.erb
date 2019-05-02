@@ -1,0 +1,39 @@
+<h1><%= @destination.name %></h1>
+<h3><%= @destination.country %></h3>
+<hr>
+
+<% if @avg_blogger_age %>
+<h2>Average blogger's age: <%= @avg_blogger_age %></h2>
+<hr>
+<% end %>
+
+<% unless @most_recent_posts.empty? %>
+<h2>Featured Post:</h2>
+<h3><%= link_to @featured_post.title, post_path(@featured_post) %></h3>
+<p>
+  Written by: <%= link_to @featured_post.blogger.name, blogger_path(@featured_post.blogger) %>
+</p>
+<p>
+  <%= @featured_post.content %>
+</p>
+<hr>
+
+
+<h2>Most Recent Posts</h2>
+<ul>
+  
+<% @most_recent_posts.each do |post| %>
+  <li>
+    <h3><%= link_to post.title, post_path(post) %></h3>
+    <p>By: <%= link_to post.blogger.name, blogger_path(post.blogger) %></p>
+    <p><%= post.likes %> likes</p>
+    <p>Posted on: <%= post.posted_at %></p>
+  </li>
+<% end %>
+</ul>
+<% end %>
+
+
+<br><br>
+
+<%= link_to "Go back to all destinations", destinations_path %>

@@ -1,0 +1,46 @@
+<style type="text/css" media="screen">
+  nav li{
+    list-style: none;
+  }
+nav a {
+  background-color: green;
+  box-shadow: 0 5px 0 darkgreen;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+}
+
+nav a:hover {
+  background-color: palegreen;
+  color: darkgreen;
+
+}
+
+nav a:active {
+  box-shadow: none;
+  top: 5px;
+
+}
+  
+</style>
+<h1>List of all the Bloggers</h1>
+
+<ul>
+  
+<% @bloggers.each do |blogger| %>
+  <li><%= link_to blogger.name, blogger_path(blogger) %></li>
+<% end %>
+</ul>
+
+<br>
+<br>
+<br>
+
+<nav>
+  <li>
+    <%= link_to "Create a new blogger", new_blogger_path %>
+  </li>
+</nav>

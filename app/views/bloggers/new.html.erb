@@ -1,0 +1,43 @@
+
+<h1>Create a new blogger profile</h1>
+
+<style type="text/css" media="screen">
+  .error-output {
+    border: 2px red solid;
+    padding: 2rem;
+    background-color: #bf676b;
+  }
+
+  .error-output h2 {
+    color: white;
+  }
+</style>
+
+<% if @errors %>
+  <div class="error-output">
+    <h2>There were some errors</h2>
+    <ul class="error-list">
+    <% @errors.each do |error| %>
+      <li class="error-message"><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @blogger do |f| %>
+  <p>
+    <%= f.label "Enter the name: " %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label "Enter the blogger's age: " %>
+    <%= f.number_field :age, min: 1 %>
+  </p>
+  <p>
+  <p>
+    <%= f.label "Enter the blogger's bio: " %><br>
+    <%= f.text_area :bio, size: "60x12" %>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>

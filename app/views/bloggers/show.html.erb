@@ -1,0 +1,38 @@
+<h1><%= @blogger.name %>'s Profile</h1>
+
+<h2>Age: <%= @blogger.age %> years-old</h2>
+<% if @blogger.bio %>
+<h2>Bio:</h2>
+<p><%= @blogger.bio %></p>
+<% end %>
+
+
+<hr>
+<h2>Featured Post:</h2>
+<div>
+  <h3><%= link_to @featured_post.title, post_path(@featured_post) %></h3>
+  <p>
+    Destination: <%=link_to @featured_post.destination.name, destination_path(@featured_post.destination)%>
+  </p>
+
+  <p>
+  <%= @featured_post.content %>
+  </p>
+</div>
+
+<hr>
+<h2>Other Posts:</h2>
+
+<ul>
+  <% @blogger.posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %></li>
+    <p>
+      Destination: 
+      <%= link_to post.destination.name, destination_path(post.destination) %>
+    </p>
+    <p>
+      <%= post.likes %> Likes.
+    </p>
+    <br>
+  <% end %>
+</ul>
