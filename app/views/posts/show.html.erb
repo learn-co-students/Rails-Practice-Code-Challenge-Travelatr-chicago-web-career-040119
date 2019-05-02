@@ -1,0 +1,13 @@
+<h1>Post Show!</h1>
+<p><%= link_to "Back to All Posts", posts_path %></p>
+<p><%= link_to "Edit Post", "#{post_path(@post)}/edit" %></p>
+
+
+<h2>Title: <%= @post.title %></h2>
+<h2>Author: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %></h2>
+<h2>Destination: <%= link_to @post.destination.name, destination_path(@post.destination) %></h2>
+<h2>Likes: <%= @post.likes %></h2>
+<h2>Content: <%= @post.content %></h2>
+<br>
+<br>
+<%= button_to "Like Post!",  { action: :like, id: @post.id}, method: :patch, data: { disable_with: 'Liked' } %>

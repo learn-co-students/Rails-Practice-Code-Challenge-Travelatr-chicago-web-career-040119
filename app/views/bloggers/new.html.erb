@@ -1,0 +1,12 @@
+<h1>Blogger New!</h1>
+<%= link_to "Back to All Bloggers", bloggers_path %>
+<%= form_for @blogger do |f| %>
+  <p><%= f.label :name %>
+  <%= f.text_field :name %></p><br>
+  <p><%= f.label :age %>
+  <%= f.text_field :age %></p><br>
+  <p><%= f.label :bio %>
+  <%= f.text_area :bio %></p><br>
+  <%= f.submit %>
+
+<% end %>

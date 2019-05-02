@@ -1,0 +1,12 @@
+<h1>Destination Edit!</h1>
+<%= link_to "Back to Destination", destination_path(@destination) %>
+<%= form_for @destination do |f| %>
+  <p><%= f.label :name %>
+  <%= f.text_field :name %></p><br>
+  <p><%= f.label :country %>
+  <%= f.text_field :country %></p><br>
+  <%= f.submit %>
+
+<% end %>
+<br>
+<%= button_to "Delete Destination", {action: :destroy, id: @destination.id}, method: :delete, data: { confirm: "Are you sure you want to delete this destination?" }%>
