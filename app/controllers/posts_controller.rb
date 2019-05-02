@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.likes = 0
     if @post.save
       redirect_to post_path(@post)
     else

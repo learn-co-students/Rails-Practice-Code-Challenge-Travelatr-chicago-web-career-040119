@@ -7,8 +7,6 @@
   <%= f.collection_select :destination_id, Destination.all, :id, :name  %></p><br>
   <p><%= f.label :blogger_id %>
   <%= f.collection_select :blogger_id, Blogger.all, :id, :name %></p><br>
-  <p><%= f.label :likes %>
-  <%= f.text_field :likes %></p><br>
   <p><%= f.label :content %>
   <%= f.text_area :content %></p><br>
   <%= f.submit %>
