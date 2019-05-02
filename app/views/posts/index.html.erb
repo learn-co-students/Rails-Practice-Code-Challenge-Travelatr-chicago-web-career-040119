@@ -1,0 +1,12 @@
+<h1>Post Index!</h1>
+<h2><%= link_to "Go to Bloggers", bloggers_path %></h2>
+<h2><%= link_to "Go to Destination", destinations_path %></h2>
+<%= link_to "Create a Post", "#{posts_path}/new" %>
+<br>
+<% @posts.each do |post| %>
+  <h2>Name: <%= link_to post.title, post_path(post)%></h2>
+  <h3>Author: <%= post.blogger.name %></h3>
+  <h3>Destination: <%= post.destination.name %></h3>
+  <br>
+  <br>
+<% end %>

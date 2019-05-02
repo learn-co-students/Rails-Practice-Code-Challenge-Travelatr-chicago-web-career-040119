@@ -1,0 +1,14 @@
+<h1>Destination Show!</h1>
+<p><%= link_to "Back to All Destinations", destinations_path %></p>
+<p><%= link_to "Edit Destination", "#{destination_path(@destination)}/edit" %></p>
+
+
+<h2>Name: <%= @destination.name %></h2>
+<h2>Country: <%= @destination.country %></h2>
+<h2>Featured Post: <%= link_to @destination.most_likes.title, post_path(@destination.most_likes) %></h2>
+<h2>Most Recent:</h2>
+  <ul>
+    <% @destination.most_recent_five.each do |post| %>
+      <li><%= link_to post.title, post_path(post) %></li>
+      <% end %>
+  </ul>

@@ -1,0 +1,12 @@
+<h1>Destination Index!</h1>
+<h2><%= link_to "Go to Bloggers", bloggers_path %></h2>
+<h2><%= link_to "Go to Posts", posts_path %></h2>
+<%= link_to "Create a Destination", "#{destinations_path}/new" %>
+
+<br>
+<% @destinations.each do |destination| %>
+  <h2>Name: <%= link_to destination.name, destination_path(destination)%></h2>
+  <h3>Country: <%= destination.country %></h3>
+  <br>
+  <br>
+<% end %>
