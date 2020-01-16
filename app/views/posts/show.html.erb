@@ -1,0 +1,12 @@
+<h1>Posts: </h1>
+<h2>Post Title:<%= @post.title %></h2>
+<h4>Post Content: <%= @post.content %></h4>
+<h4>Post Blogger Name: <%= link_to @post.blogger.name, blogger_path(@blogger) %></h4>
+<h4>Post Destination: <%= link_to @post.destination.name, destination_path(@destination) %></h4>
+
+
+<!-- we have to add a like button -->
+<%= form_for @post, :method => :put, :remote => true do |f| %>
+  <%= f.hidden_field :likes, value: (@post.likes + 1 ) %>
+  <%= f.submit "Like" %>
+<% end %>

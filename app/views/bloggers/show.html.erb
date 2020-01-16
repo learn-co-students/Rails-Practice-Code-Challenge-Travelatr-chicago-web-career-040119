@@ -1,0 +1,6 @@
+<h1>Blogger:</h1>
+<h1><%= @blogger.name %></h1>
+<h1><%= @blogger.age %></h1>
+<h1><%= @blogger.bio %></h1>
+<h3> Total post likes: <%= @blogger.sum_likes_posts %></h3>
+<h3>Post: <%= link_to @blogger.most_liked_post.title, post_path(@post)%></h3>
